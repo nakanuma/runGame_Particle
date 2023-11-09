@@ -17,6 +17,9 @@ RunningParticle::~RunningParticle()
 
 void RunningParticle::Update()
 {
+	// 生成されてからのタイマーを増やす
+	timer_++;
+
 	// 4点の座標を更新
 	leftTop_ = { pos_.x - (size_ / 2),pos_.y - (size_ / 2) };
 	rightTop_ = { pos_.x + (size_ / 2),pos_.y - (size_ / 2) };
@@ -26,6 +29,11 @@ void RunningParticle::Update()
 	// 移動処理
 	pos_.x -= velocity_.x;
 	pos_.y -= velocity_.y;
+
+	// 生成されてからxxフレーム経過したパーティクルに重力加速度を加算する
+	if (timer_ >= 12) {
+		velocity_.y -= acceleratorY_;
+	}
 
 	// 透明にしていく処理
 	if (alpha_ > 0) {

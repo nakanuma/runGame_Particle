@@ -47,7 +47,7 @@ void RunningEmitter::Emit(Vector2 pos)
 
 	// 速度をランダムに設定
 	float velocityX = static_cast<float>(Random(6, 8));
-	float velocityY = static_cast<float>(Random(0, 1));
+	float velocityY = static_cast<float>(Random(0, 2));
 
 	// サイズをランダムに設定
 	float size = static_cast<float>(Random(5, 10));

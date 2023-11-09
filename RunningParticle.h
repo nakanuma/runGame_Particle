@@ -24,8 +24,10 @@ private:
 	Vector2 rightBottom_;
 
 	Vector2 velocity_;
+	float acceleratorY_ = 0.1f;
 	float size_;
 	int alpha_ = 128;
 	bool del_ = false;
+	int timer_ = 0; //生成されてからのフレームをカウントするタイマー
 };
 

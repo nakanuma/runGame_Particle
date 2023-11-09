@@ -33,10 +33,13 @@ void PlayerUpdate(Player& player,char* keys) {
 		player.pos.y += player.speed;
 	}
 
-	if (keys[DIK_SPACE]) {
-		if (currentPlayerMode == RUNNING) {
-			currentPlayerMode = FLYING;
-		}
+	// モード変更
+	if (keys[DIK_1]) {
+		currentPlayerMode = RUNNING;
+	}
+
+	if (keys[DIK_2]) {
+		currentPlayerMode = FLYING;
 	}
 }
 
