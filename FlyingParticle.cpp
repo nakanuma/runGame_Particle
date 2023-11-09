@@ -1,6 +1,6 @@
 ﻿#include "FlyingParticle.h"
 
-FlyingParticle::FlyingParticle(Vector2<float> centerPos)
+FlyingParticle::FlyingParticle(Vector2 centerPos)
 {
 	pos_.x = centerPos.x;
 	pos_.y = centerPos.y;

@@ -8,7 +8,7 @@ FlyingEmitter::~FlyingEmitter()
 {
 }
 
-void FlyingEmitter::Update(Vector2<float> centerPos)
+void FlyingEmitter::Update(Vector2 centerPos)
 {
 	// タイマーを進める
 	timer_++;

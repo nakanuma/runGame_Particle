@@ -1,13 +1,14 @@
 #include <Novice.h>
-#include <MyStruct.h>
+#include "Vector2.h"
 
 #include "FlyingEmitter.h"
+#include "RunningEmitter.h"
 
 const char kWindowTitle[] = "LC1A_18_ナカヌマカツシ_タイトル";
 
 // プレイヤー構造体
 struct Player {
-	Vector2<float> pos;
+	Vector2 pos;
 	int size;
 	int speed;
 };
@@ -56,8 +57,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		4
 	};
 
-	// インスタンスを生成
+	// エミッターのインスタンスを生成
 	FlyingEmitter flyingEmitter; 
+	RunningEmitter runningEmitter;
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -75,8 +77,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		// プレイヤーの更新処理
 		PlayerUpdate(player,keys);
 
-		// FlyingEmitterの更新処理
-		if (currentPlayerMode == FLYING) {
+		// エミッターの更新処理
+		if (currentPlayerMode == RUNNING) { // ランモード
+			runningEmitter.Update({player.pos.x,player.pos.y + (player.size - 9.0f)}); // プレイヤーの左下から出るよう調整
+		}
+
+		if (currentPlayerMode == FLYING) { // 飛行モード
 			flyingEmitter.Update({ player.pos.x + (player.size / 2),player.pos.y + (player.size / 2) }); //中心位置を調整
 		}
 
@@ -88,8 +94,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 
-		// FlyingEmitterの描画処理
-		if (currentPlayerMode == FLYING) {
+		// エミッターの描画処理
+		if (currentPlayerMode == RUNNING) { //ランモード
+			runningEmitter.Draw();
+		}
+
+		if (currentPlayerMode == FLYING) { //飛行モード
 			flyingEmitter.Draw();
 		}
 

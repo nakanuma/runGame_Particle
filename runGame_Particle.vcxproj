@@ -118,6 +118,9 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="FlyingEmitter.cpp" />
     <ClCompile Include="FlyingParticle.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RunningEmitter.cpp" />
+    <ClCompile Include="RunningParticle.cpp" />
+    <ClCompile Include="Util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\KamataEngine\DirectXGame\base\StringUtility.h" />
@@ -149,7 +152,9 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="C:\KamataEngine\Adapter\Novice.h" />
     <ClInclude Include="FlyingEmitter.h" />
     <ClInclude Include="FlyingParticle.h" />
-    <ClInclude Include="MyStruct.h" />
+    <ClInclude Include="RunningEmitter.h" />
+    <ClInclude Include="RunningParticle.h" />
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

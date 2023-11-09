@@ -1,9 +1,9 @@
 ﻿#pragma once
-
-#include "MyStruct.h"
+#include "Vector2.h"
 
 #include "FlyingParticle.h"
 #include <list>
+
 
 class FlyingEmitter
 {
@@ -11,7 +11,7 @@ public:
 	FlyingEmitter();
 	~FlyingEmitter();
 
-	void Update(Vector2<float>centerPos);
+	void Update(Vector2 centerPos);
 	void Draw();
 
 	void Emit(float centerX,float centerY); // パーティクルの生成を行う関数

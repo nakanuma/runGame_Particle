@@ -17,6 +17,15 @@
     <Filter Include="Particle">
       <UniqueIdentifier>{4c50feac-a6ef-42a5-bad4-8d0796267101}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Particle\Flying">
+      <UniqueIdentifier>{c96ee904-a2ba-4e12-b18f-bdc432020220}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Particle\Running">
+      <UniqueIdentifier>{5444fac9-cbad-47d5-9593-6a88f5f2b31b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Particle\Source">
+      <UniqueIdentifier>{c3affeea-80a9-44fc-810c-ff45fd81cdea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
@@ -41,11 +50,20 @@
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\StringUtility.cpp">
       <Filter>KamataEngine\Source</Filter>
     </ClCompile>
-    <ClCompile Include="FlyingParticle.cpp">
-      <Filter>Particle</Filter>
-    </ClCompile>
     <ClCompile Include="FlyingEmitter.cpp">
-      <Filter>Particle</Filter>
+      <Filter>Particle\Flying</Filter>
+    </ClCompile>
+    <ClCompile Include="FlyingParticle.cpp">
+      <Filter>Particle\Flying</Filter>
+    </ClCompile>
+    <ClCompile Include="RunningParticle.cpp">
+      <Filter>Particle\Running</Filter>
+    </ClCompile>
+    <ClCompile Include="RunningEmitter.cpp">
+      <Filter>Particle\Running</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Particle\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,14 +138,20 @@
     <ClInclude Include="C:\KamataEngine\DirectXGame\base\StringUtility.h">
       <Filter>KamataEngine\Include</Filter>
     </ClInclude>
-    <ClInclude Include="FlyingParticle.h">
-      <Filter>Particle</Filter>
-    </ClInclude>
     <ClInclude Include="FlyingEmitter.h">
-      <Filter>Particle</Filter>
+      <Filter>Particle\Flying</Filter>
     </ClInclude>
-    <ClInclude Include="MyStruct.h">
-      <Filter>Particle</Filter>
+    <ClInclude Include="FlyingParticle.h">
+      <Filter>Particle\Flying</Filter>
+    </ClInclude>
+    <ClInclude Include="RunningParticle.h">
+      <Filter>Particle\Running</Filter>
+    </ClInclude>
+    <ClInclude Include="RunningEmitter.h">
+      <Filter>Particle\Running</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Particle\Source</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

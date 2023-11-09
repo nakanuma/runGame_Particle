@@ -1,11 +1,12 @@
 ﻿#pragma once
-#include "MyStruct.h"
 #include <Novice.h>
+
+#include "Vector2.h"
 
 class FlyingParticle
 {
 public:
-	FlyingParticle(Vector2<float> centerPos);
+	FlyingParticle(Vector2 centerPos);
 	~FlyingParticle();
 
 	void Update();
@@ -14,16 +15,16 @@ public:
 	bool GetDelFlag(); // パーティクルが消えているかを取得する
 
 private:
-	int gh_ = Novice::LoadTexture("./flyingParticle.png");
+	int gh_ = Novice::LoadTexture("./images/flyingParticle.png");
 
-	Vector2<float> pos_; // 中心座標
+	Vector2 pos_; // 中心座標
 
-	Vector2<float> leftTop_;
-	Vector2<float> rightTop_;
-	Vector2<float> leftBottom_;
-	Vector2<float> rightBottom_;
+	Vector2 leftTop_;
+	Vector2 rightTop_;
+	Vector2 leftBottom_;
+	Vector2 rightBottom_;
 
-	Vector2<float> Velocity_ = { 8.0f,0.0f };
+	Vector2 Velocity_ = { 8.0f,0.0f };
 	float size_ = 42.0f;
 	int alpha_ = 128;
 	bool del_ = false;
