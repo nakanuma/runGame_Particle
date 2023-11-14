@@ -3,6 +3,7 @@
 
 #include "FlyingEmitter.h"
 #include "RunningEmitter.h"
+#include "PlayerDeadEmitter.h"
 
 const char kWindowTitle[] = "LC1A_18_ナカヌマカツシ_タイトル";
 
@@ -63,6 +64,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	// エミッターのインスタンスを生成
 	FlyingEmitter flyingEmitter; 
 	RunningEmitter runningEmitter;
+	PlayerDeadEmitter playerDeadEmitter;
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -89,6 +91,14 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			flyingEmitter.Update({ player.pos.x + (player.size / 2),player.pos.y + (player.size / 2) }); //中心位置を調整
 		}
 
+		// 死亡時パーティクルのエミッター更新処理
+		playerDeadEmitter.Update();
+
+		// キーが押された（ゲームではプレイヤーが死亡した）際に死亡パーティクルを生成
+		if (keys[DIK_P] && !preKeys[DIK_P]) {
+			playerDeadEmitter.Emit({ player.pos.x + player.size / 2,player.pos.y + player.size / 2 }); // 中心座標を合わせる
+		}
+
 		///
 		/// ↑更新処理ここまで
 		///
@@ -97,14 +107,16 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 
-		// エミッターの描画処理
-		if (currentPlayerMode == RUNNING) { //ランモード
-			runningEmitter.Draw();
-		}
+		//// エミッターの描画処理
+		//if (currentPlayerMode == RUNNING) { //ランモード
+		//	runningEmitter.Draw();
+		//}
 
-		if (currentPlayerMode == FLYING) { //飛行モード
-			flyingEmitter.Draw();
-		}
+		//if (currentPlayerMode == FLYING) { //飛行モード
+		//	flyingEmitter.Draw();
+		//}
+
+		playerDeadEmitter.Draw();
 
 		// プレイヤーの描画
 		Novice::DrawBox(

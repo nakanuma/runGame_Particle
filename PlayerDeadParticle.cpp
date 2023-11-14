@@ -1,6 +1,6 @@
-﻿#include "RunningParticle.h"
+﻿#include "PlayerDeadParticle.h"
 
-RunningParticle::RunningParticle(Vector2 pos, Vector2 velocity,float size)
+PlayerDeadParticle::PlayerDeadParticle(Vector2 pos, Vector2 velocity, float size)
 {
 	pos_.x = pos.x;
 	pos_.y = pos.y;
@@ -11,47 +11,40 @@ RunningParticle::RunningParticle(Vector2 pos, Vector2 velocity,float size)
 	size_ = size;
 }
 
-RunningParticle::~RunningParticle()
+PlayerDeadParticle::~PlayerDeadParticle()
 {
+
 }
 
-void RunningParticle::Update()
+void PlayerDeadParticle::Update()
 {
-	// 生成されてからのタイマーを増やす
-	timer_++;
-
 	// 4点の座標を更新
 	leftTop_ = { pos_.x - (size_ / 2),pos_.y - (size_ / 2) };
 	rightTop_ = { pos_.x + (size_ / 2),pos_.y - (size_ / 2) };
 	leftBottom_ = { pos_.x - (size_ / 2),pos_.y + (size_ / 2) };
 	rightBottom_ = { pos_.x + (size_ / 2),pos_.y + (size_ / 2) };
 
-	// 移動処理
-	pos_.x -= velocity_.x;
-	pos_.y -= velocity_.y;
+	// 座標を更新
+	pos_.x += velocity_.x;
+	pos_.y += velocity_.y;
 
-	// 生成されてからxxフレーム経過したパーティクルに重力加速度を加算する
-	if (timer_ >= 6) {
-		velocity_.y -= acceleratorY_;
-	}
-
-	// 透明にしていく処理
+	// 徐々に透明にする
 	if (alpha_ > 0) {
-		alpha_ -= 1;
+		alpha_ -= 4;
 	}
 
-	// サイズを小さくしていく処理
-	if (size_ > 0.0f) {
-		size_ -= 0.3f;
+	// サイズを小さくする
+	if (size_ >= 0) {
+		size_ -= 0.6f;
 	}
 
 	// サイズが0になったら削除
-	if (size_ < 0.0f) {
+	if (size_ < 0) {
 		del_ = true;
 	}
 }
 
-void RunningParticle::Draw()
+void PlayerDeadParticle::Draw()
 {
 	Novice::DrawQuad(
 		static_cast<int>(leftTop_.x), static_cast<int>(leftTop_.y),
@@ -65,7 +58,7 @@ void RunningParticle::Draw()
 	);
 }
 
-bool RunningParticle::GetDelFlag()
+bool PlayerDeadParticle::GetDelFlag()
 {
 	return del_;
 }

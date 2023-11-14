@@ -26,6 +26,9 @@
     <Filter Include="Particle\Source">
       <UniqueIdentifier>{c3affeea-80a9-44fc-810c-ff45fd81cdea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Particle\PlayerDead">
+      <UniqueIdentifier>{3a70daa9-b978-44f2-9a72-34dad4a5cb7f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
@@ -64,6 +67,12 @@
     </ClCompile>
     <ClCompile Include="Util.cpp">
       <Filter>Particle\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDeadEmitter.cpp">
+      <Filter>Particle\PlayerDead</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDeadParticle.cpp">
+      <Filter>Particle\PlayerDead</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +161,12 @@
     </ClInclude>
     <ClInclude Include="Util.h">
       <Filter>Particle\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDeadEmitter.h">
+      <Filter>Particle\PlayerDead</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerDeadParticle.h">
+      <Filter>Particle\PlayerDead</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
