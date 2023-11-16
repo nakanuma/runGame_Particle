@@ -37,6 +37,14 @@ void PlayerUpdate(Player& player, char* keys) {
 		player.pos.y += player.speed;
 	}
 
+	if (keys[DIK_A]) {
+		player.pos.x -= player.speed;
+	}
+
+	if (keys[DIK_D]) {
+		player.pos.x += player.speed;
+	}
+
 	// モード変更
 	if (keys[DIK_1]) {
 		currentPlayerMode = RUNNING;
