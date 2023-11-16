@@ -29,6 +29,12 @@
     <Filter Include="Particle\PlayerDead">
       <UniqueIdentifier>{3a70daa9-b978-44f2-9a72-34dad4a5cb7f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Particle\Clear">
+      <UniqueIdentifier>{209efa05-b4e5-4683-ab54-496520a75f1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Particle\PlayerRevive">
+      <UniqueIdentifier>{4849950b-fb53-431f-9d99-573d695a0480}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
@@ -73,6 +79,18 @@
     </ClCompile>
     <ClCompile Include="PlayerDeadParticle.cpp">
       <Filter>Particle\PlayerDead</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearParticle.cpp">
+      <Filter>Particle\Clear</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearEmitter.cpp">
+      <Filter>Particle\Clear</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerReviveParticle.cpp">
+      <Filter>Particle\PlayerRevive</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerReviveEmitter.cpp">
+      <Filter>Particle\PlayerRevive</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +185,18 @@
     </ClInclude>
     <ClInclude Include="PlayerDeadParticle.h">
       <Filter>Particle\PlayerDead</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearParticle.h">
+      <Filter>Particle\Clear</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearEmitter.h">
+      <Filter>Particle\Clear</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerReviveParticle.h">
+      <Filter>Particle\PlayerRevive</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerReviveEmitter.h">
+      <Filter>Particle\PlayerRevive</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

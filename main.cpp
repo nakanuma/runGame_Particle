@@ -1,9 +1,12 @@
 #include <Novice.h>
 #include "Vector2.h"
 
+// Emitter //
 #include "FlyingEmitter.h"
 #include "RunningEmitter.h"
 #include "PlayerDeadEmitter.h"
+#include "ClearEmitter.h"
+#include "PlayerReviveEmitter.h"
 
 const char kWindowTitle[] = "LC1A_18_ナカヌマカツシ_タイトル";
 
@@ -24,7 +27,7 @@ enum PlayerMode {
 PlayerMode currentPlayerMode = RUNNING;
 
 // プレイヤーの更新処理を行う関数
-void PlayerUpdate(Player& player,char* keys) {
+void PlayerUpdate(Player& player, char* keys) {
 	// キー入力による移動処理
 	if (keys[DIK_W]) {
 		player.pos.y -= player.speed;
@@ -51,8 +54,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	Novice::Initialize(kWindowTitle, 1280, 720);
 
 	// キー入力結果を受け取る箱
-	char keys[256] = {0};
-	char preKeys[256] = {0};
+	char keys[256] = { 0 };
+	char preKeys[256] = { 0 };
 
 	// プレイヤーの定義
 	Player player{
@@ -62,9 +65,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	};
 
 	// エミッターのインスタンスを生成
-	FlyingEmitter flyingEmitter; 
+	FlyingEmitter flyingEmitter;
 	RunningEmitter runningEmitter;
 	PlayerDeadEmitter playerDeadEmitter;
+	ClearEmitter clearEmitter;
+	PlayerReviveEmitter playerReviveEmitter;
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -80,11 +85,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		///
 
 		// プレイヤーの更新処理
-		PlayerUpdate(player,keys);
+		PlayerUpdate(player, keys);
 
 		// エミッターの更新処理
 		if (currentPlayerMode == RUNNING) { // ランモード
-			runningEmitter.Update({player.pos.x,player.pos.y + (player.size - 9.0f)}); // プレイヤーの左下から出るよう調整
+			runningEmitter.Update({ player.pos.x,player.pos.y + (player.size - 9.0f) }); // プレイヤーの左下から出るよう調整
 		}
 
 		if (currentPlayerMode == FLYING) { // 飛行モード
@@ -97,6 +102,16 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		// キーが押された（ゲームではプレイヤーが死亡した）際に死亡パーティクルを生成
 		if (keys[DIK_P] && !preKeys[DIK_P]) {
 			playerDeadEmitter.Emit({ player.pos.x + player.size / 2,player.pos.y + player.size / 2 }); // 中心座標を合わせる
+		}
+
+		// クリアパーティクルのエミッター更新処理
+		clearEmitter.Update();
+
+		// プレイヤー復活エミッターの更新処理
+		playerReviveEmitter.Update();
+
+		if (keys[DIK_R] && !preKeys[DIK_R]) {
+			playerReviveEmitter.Emit({ player.pos.x + player.size / 2,player.pos.y + player.size / 2 });
 		}
 
 		///
@@ -117,6 +132,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		//}
 
 		playerDeadEmitter.Draw();
+		/*clearEmitter.Draw();*/
+
+		playerReviveEmitter.Draw();
 
 		// プレイヤーの描画
 		Novice::DrawBox(
@@ -134,6 +152,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		if (currentPlayerMode == FLYING) {
 			Novice::ScreenPrintf(0, 0, "Mode:FLYING");
 		}
+
+		Novice::ScreenPrintf(0, 20, "x:%.f y:%.f", player.pos.x, player.pos.y);
 
 		///
 		/// ↑描画処理ここまで
