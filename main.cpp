@@ -7,6 +7,7 @@
 #include "PlayerDeadEmitter.h"
 #include "ClearEmitter.h"
 #include "PlayerReviveEmitter.h"
+#include "BackGroundEmitter.h"
 
 const char kWindowTitle[] = "LC1A_18_ナカヌマカツシ_タイトル";
 
@@ -80,6 +81,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	PlayerDeadEmitter playerDeadEmitter;
 	ClearEmitter clearEmitter;
 	PlayerReviveEmitter playerReviveEmitter;
+	BackGroundEmitter backGroundEmitter;
 
 	// 画像読み込み
 	int bgGH = Novice::LoadTexture("./images/bg.png");
@@ -135,6 +137,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			playerReviveEmitter.Emit({ player.pos.x + player.size / 2,player.pos.y + player.size / 2 });
 		}
 
+		// 背景エミッターの更新処理
+		backGroundEmitter.Update(player.pos);
+
 		///
 		/// ↑更新処理ここまで
 		///
@@ -175,6 +180,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			kFillModeSolid
 		);
 
+		// 背景エミッターの描画処理
+		backGroundEmitter.Draw(camera);
+
 		// プレイヤーの描画
 		Novice::DrawBox(
 			(int)player.pos.x - camera, (int)player.pos.y,
@@ -193,7 +201,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		}
 
 		Novice::ScreenPrintf(0, 20, "x:%.f y:%.f", player.pos.x, player.pos.y);
-		Novice::ScreenPrintf(0, 40, "camera:%d", camera);
+		/*Novice::ScreenPrintf(0, 40, "camera:%d", camera);*/
 
 		///
 		/// ↑描画処理ここまで

@@ -9,7 +9,7 @@ public:
 	~BackGroundParticle();
 
 	void Update();
-	void Draw();
+	void Draw(int scroll);
 
 	bool GetDelFlag();
 
@@ -24,7 +24,7 @@ private:
 	Vector2 rightBottom_;
 
 	Vector2 velocity_;
-	float size_ = 8;
+	float size_ = 16;
 	int alpha_ = 192;
 	bool del_ = false;
 };
