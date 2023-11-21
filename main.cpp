@@ -59,7 +59,7 @@ void PlayerUpdate(Player& player, char* keys) {
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	// ライブラリの初期化
-	Novice::Initialize(kWindowTitle, 1280, 720);
+	Novice::Initialize(kWindowTitle, 1280, 756);
 
 	// キー入力結果を受け取る箱
 	char keys[256] = { 0 };
@@ -67,10 +67,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	// プレイヤーの定義
 	Player player{
-		{640,360},
+		{320,588},
 		42,
-		4
+		8
 	};
+
+	int camera = 0;
 
 	// エミッターのインスタンスを生成
 	FlyingEmitter flyingEmitter;
@@ -78,6 +80,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	PlayerDeadEmitter playerDeadEmitter;
 	ClearEmitter clearEmitter;
 	PlayerReviveEmitter playerReviveEmitter;
+
+	// 画像読み込み
+	int bgGH = Novice::LoadTexture("./images/bg.png");
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
@@ -102,6 +107,14 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		if (currentPlayerMode == FLYING) { // 飛行モード
 			flyingEmitter.Update({ player.pos.x + (player.size / 2),player.pos.y + (player.size / 2) }); //中心位置を調整
+		}
+
+		// カメラの移動処理
+		if (keys[DIK_A]) {
+			camera -= player.speed;
+		}
+		if (keys[DIK_D]) {
+			camera += player.speed;
 		}
 
 		// 死亡時パーティクルのエミッター更新処理
@@ -144,9 +157,27 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		playerReviveEmitter.Draw();
 
+		// 背景の描画（見た目だけ）
+		Novice::DrawSprite(
+			0 - camera, 0,
+			bgGH,
+			1.0f, 1.0f,
+			0.0f,
+			0xFFFFFFFF
+		);
+
+		// 床の描画（見た目だけ）
+		Novice::DrawBox(
+			0 - camera, 630,
+			3840, 126,
+			0.0f,
+			BLACK,
+			kFillModeSolid
+		);
+
 		// プレイヤーの描画
 		Novice::DrawBox(
-			(int)player.pos.x, (int)player.pos.y,
+			(int)player.pos.x - camera, (int)player.pos.y,
 			player.size, player.size,
 			0.0f,
 			WHITE,
@@ -162,6 +193,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		}
 
 		Novice::ScreenPrintf(0, 20, "x:%.f y:%.f", player.pos.x, player.pos.y);
+		Novice::ScreenPrintf(0, 40, "camera:%d", camera);
 
 		///
 		/// ↑描画処理ここまで

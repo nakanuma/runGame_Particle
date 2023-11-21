@@ -35,6 +35,9 @@
     <Filter Include="Particle\PlayerRevive">
       <UniqueIdentifier>{4849950b-fb53-431f-9d99-573d695a0480}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Particle\BackGround">
+      <UniqueIdentifier>{139ceab1-ca3d-4113-9786-ece80d5e4cf2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
@@ -91,6 +94,12 @@
     </ClCompile>
     <ClCompile Include="PlayerReviveEmitter.cpp">
       <Filter>Particle\PlayerRevive</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGroundParticle.cpp">
+      <Filter>Particle\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGroundEmitter.cpp">
+      <Filter>Particle\BackGround</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +206,12 @@
     </ClInclude>
     <ClInclude Include="PlayerReviveEmitter.h">
       <Filter>Particle\PlayerRevive</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGroundParticle.h">
+      <Filter>Particle\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGroundEmitter.h">
+      <Filter>Particle\BackGround</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
