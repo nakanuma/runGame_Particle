@@ -18,11 +18,11 @@ private:
 	std::list<BackGroundParticle> particleList;
 
 	int leftRangeX_ = 320;
-	int rightRangeX_ = 960;
+	int rightRangeX_ = 960 + 320; // プレイヤーが移動しているので余裕を持たせて右画面端 + 320の位置まで生成を行う
 
 	int rangeY_ = 756;
 
 	int timer_ = 0;
-	int interval_ = 4;
+	int interval_ = 5;
 };
 

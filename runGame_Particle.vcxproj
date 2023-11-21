@@ -122,6 +122,7 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="FlyingEmitter.cpp" />
     <ClCompile Include="FlyingParticle.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="PlayerDeadEmitter.cpp" />
     <ClCompile Include="PlayerDeadParticle.cpp" />
     <ClCompile Include="PlayerReviveEmitter.cpp" />
@@ -164,6 +165,7 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="ClearParticle.h" />
     <ClInclude Include="FlyingEmitter.h" />
     <ClInclude Include="FlyingParticle.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="PlayerDeadEmitter.h" />
     <ClInclude Include="PlayerDeadParticle.h" />
     <ClInclude Include="PlayerReviveEmitter.h" />

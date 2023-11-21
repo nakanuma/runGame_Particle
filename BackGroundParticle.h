@@ -23,9 +23,21 @@ private:
 	Vector2 leftBottom_;
 	Vector2 rightBottom_;
 
+	Vector2 rotatedLeftTop = { 0.0f,0.0f };
+	Vector2 rotatedRightTop = { 0.0f,0.0f };
+	Vector2 rotatedLeftBottom = { 0.0f,0.0f };
+	Vector2 rotatedRightBottom = { 0.0f,0.0f };
+
+	Vector2 movedLeftTop = { 0.0f,0.0f };
+	Vector2 movedRightTop = { 0.0f,0.0f };
+	Vector2 movedLeftBottom = { 0.0f,0.0f };
+	Vector2 movedRightBottom = { 0.0f,0.0f };
+
 	Vector2 velocity_;
 	float size_ = 16;
 	int alpha_ = 192;
 	bool del_ = false;
+
+	float theta_ = 0.0f;
 };
 

@@ -101,6 +101,9 @@
     <ClCompile Include="BackGroundEmitter.cpp">
       <Filter>Particle\BackGround</Filter>
     </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Particle\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\KamataEngine\DirectXGame\audio\Audio.h">
@@ -212,6 +215,9 @@
     </ClInclude>
     <ClInclude Include="BackGroundEmitter.h">
       <Filter>Particle\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Particle\Source</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
