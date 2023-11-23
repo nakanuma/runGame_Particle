@@ -9,6 +9,7 @@
 #include "PlayerReviveEmitter.h"
 #include "BackGroundEmitter.h"
 #include "GetCoinEmitter.h"
+#include "ModeChangeEmitter.h"
 
 const char kWindowTitle[] = "LC1A_18_ナカヌマカツシ_タイトル";
 
@@ -84,6 +85,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	PlayerReviveEmitter playerReviveEmitter;
 	BackGroundEmitter backGroundEmitter;
 	GetCoinEmitter getCoinEmitter;
+	ModeChangeEmitter modeChangeEmitter;
 
 	// 画像読み込み
 	int bgGH = Novice::LoadTexture("./images/bg.png");
@@ -148,6 +150,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			getCoinEmitter.Emit({ player.pos.x + player.size / 2, player.pos.y + player.size / 2 });
 		}
 
+		// モード変更エミッターの更新処理
+		modeChangeEmitter.Update();
+		if (keys[DIK_B] && !preKeys[DIK_B]) {
+			modeChangeEmitter.Emit({ player.pos.x + player.size / 2, player.pos.y + player.size / 2 });
+		}
+
 		///
 		/// ↑更新処理ここまで
 		///
@@ -184,6 +192,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		playerDeadEmitter.Draw();
 
 		getCoinEmitter.Draw();
+
+		modeChangeEmitter.Draw(camera);
 
 		//// エミッターの描画処理
 		//if (currentPlayerMode == RUNNING) { //ランモード

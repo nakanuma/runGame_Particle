@@ -41,6 +41,9 @@
     <Filter Include="Particle\GetCoin">
       <UniqueIdentifier>{9c430944-a264-4333-af59-9ca2816b267b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Particle\ModeChange">
+      <UniqueIdentifier>{aab09f17-d93a-4e75-80e8-80b756918199}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
@@ -112,6 +115,12 @@
     </ClCompile>
     <ClCompile Include="GetCoinEmitter.cpp">
       <Filter>Particle\GetCoin</Filter>
+    </ClCompile>
+    <ClCompile Include="ModeChangeParticle.cpp">
+      <Filter>Particle\ModeChange</Filter>
+    </ClCompile>
+    <ClCompile Include="ModeChangeEmitter.cpp">
+      <Filter>Particle\ModeChange</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +242,12 @@
     </ClInclude>
     <ClInclude Include="GetCoinEmitter.h">
       <Filter>Particle\GetCoin</Filter>
+    </ClInclude>
+    <ClInclude Include="ModeChangeParticle.h">
+      <Filter>Particle\ModeChange</Filter>
+    </ClInclude>
+    <ClInclude Include="ModeChangeEmitter.h">
+      <Filter>Particle\ModeChange</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

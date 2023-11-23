@@ -125,6 +125,8 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="GetCoinParticle.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="ModeChangeEmitter.cpp" />
+    <ClCompile Include="ModeChangeParticle.cpp" />
     <ClCompile Include="PlayerDeadEmitter.cpp" />
     <ClCompile Include="PlayerDeadParticle.cpp" />
     <ClCompile Include="PlayerReviveEmitter.cpp" />
@@ -170,6 +172,8 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="GetCoinEmitter.h" />
     <ClInclude Include="GetCoinParticle.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="ModeChangeEmitter.h" />
+    <ClInclude Include="ModeChangeParticle.h" />
     <ClInclude Include="PlayerDeadEmitter.h" />
     <ClInclude Include="PlayerDeadParticle.h" />
     <ClInclude Include="PlayerReviveEmitter.h" />
