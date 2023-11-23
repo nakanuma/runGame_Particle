@@ -10,7 +10,7 @@ public:
 	~FlyingParticle();
 
 	void Update();
-	void Draw();
+	void Draw(int scroll);
 
 	bool GetDelFlag(); // パーティクルが消えているかを取得する
 

@@ -31,11 +31,11 @@ void RunningEmitter::Update(Vector2 pos)
 	}
 }
 
-void RunningEmitter::Draw()
+void RunningEmitter::Draw(int scroll)
 {
 	// パーティクル全ての描画処理を呼ぶ
 	for (auto& particle : particleList) {
-		particle.Draw();
+		particle.Draw(scroll);
 	}
 }
 

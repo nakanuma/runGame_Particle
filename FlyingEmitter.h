@@ -12,7 +12,7 @@ public:
 	~FlyingEmitter();
 
 	void Update(Vector2 centerPos);
-	void Draw();
+	void Draw(int scroll);
 
 	void Emit(float centerX,float centerY); // パーティクルの生成を行う関数
 	

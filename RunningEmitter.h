@@ -10,7 +10,7 @@ public:
 	~RunningEmitter();
 
 	void Update(Vector2 pos);
-	void Draw();
+	void Draw(int scroll);
 
 	void Emit(Vector2 pos); //パーティクルを生成する関数
 

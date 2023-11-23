@@ -31,11 +31,11 @@ void FlyingEmitter::Update(Vector2 centerPos)
 	}
 }
 
-void FlyingEmitter::Draw()
+void FlyingEmitter::Draw(int scroll)
 {
 	// パーティクル全ての描画処理を呼ぶ
 	for (auto& particle : particleList) {
-		particle.Draw();
+		particle.Draw(scroll);
 	}
 }
 

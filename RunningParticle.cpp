@@ -51,13 +51,13 @@ void RunningParticle::Update()
 	}
 }
 
-void RunningParticle::Draw()
+void RunningParticle::Draw(int scroll)
 {
 	Novice::DrawQuad(
-		static_cast<int>(leftTop_.x), static_cast<int>(leftTop_.y),
-		static_cast<int>(rightTop_.x), static_cast<int>(rightTop_.y),
-		static_cast<int>(leftBottom_.x), static_cast<int>(leftBottom_.y),
-		static_cast<int>(rightBottom_.x), static_cast<int>(rightBottom_.y),
+		static_cast<int>(leftTop_.x) - scroll, static_cast<int>(leftTop_.y),
+		static_cast<int>(rightTop_.x) - scroll, static_cast<int>(rightTop_.y),
+		static_cast<int>(leftBottom_.x) - scroll, static_cast<int>(leftBottom_.y),
+		static_cast<int>(rightBottom_.x) - scroll, static_cast<int>(rightBottom_.y),
 		0, 0,
 		1, 1,
 		gh_,

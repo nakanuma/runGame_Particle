@@ -8,6 +8,7 @@
 #include "ClearEmitter.h"
 #include "PlayerReviveEmitter.h"
 #include "BackGroundEmitter.h"
+#include "GetCoinEmitter.h"
 
 const char kWindowTitle[] = "LC1A_18_ナカヌマカツシ_タイトル";
 
@@ -82,6 +83,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	ClearEmitter clearEmitter;
 	PlayerReviveEmitter playerReviveEmitter;
 	BackGroundEmitter backGroundEmitter;
+	GetCoinEmitter getCoinEmitter;
 
 	// 画像読み込み
 	int bgGH = Novice::LoadTexture("./images/bg.png");
@@ -104,7 +106,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 		// エミッターの更新処理
 		if (currentPlayerMode == RUNNING) { // ランモード
-			runningEmitter.Update({ player.pos.x,player.pos.y + (player.size - 9.0f) }); // プレイヤーの左下から出るよう調整
+			runningEmitter.Update({ player.pos.x,player.pos.y + (player.size - 10.0f) }); // プレイヤーの左下から出るよう調整
 		}
 
 		if (currentPlayerMode == FLYING) { // 飛行モード
@@ -140,6 +142,12 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		// 背景エミッターの更新処理
 		backGroundEmitter.Update(player.pos);
 
+		// コイン取得エミッターの更新処理
+		getCoinEmitter.Update();
+		if (keys[DIK_C] && !preKeys[DIK_C]) {
+			getCoinEmitter.Emit({ player.pos.x + player.size / 2, player.pos.y + player.size / 2 });
+		}
+
 		///
 		/// ↑更新処理ここまで
 		///
@@ -148,16 +156,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		/// ↓描画処理ここから
 		///
 
-		//// エミッターの描画処理
-		//if (currentPlayerMode == RUNNING) { //ランモード
-		//	runningEmitter.Draw();
-		//}
-
-		//if (currentPlayerMode == FLYING) { //飛行モード
-		//	flyingEmitter.Draw();
-		//}
-
-		playerDeadEmitter.Draw();
 		/*clearEmitter.Draw();*/
 
 		playerReviveEmitter.Draw();
@@ -181,7 +179,20 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		);
 
 		// 背景エミッターの描画処理
-		backGroundEmitter.Draw(camera);
+		/*backGroundEmitter.Draw(camera);*/
+
+		playerDeadEmitter.Draw();
+
+		getCoinEmitter.Draw();
+
+		//// エミッターの描画処理
+		//if (currentPlayerMode == RUNNING) { //ランモード
+		//	runningEmitter.Draw(camera);
+		//}
+
+		//if (currentPlayerMode == FLYING) { //飛行モード
+		//	flyingEmitter.Draw(camera);
+		//}
 
 		// プレイヤーの描画
 		Novice::DrawBox(

@@ -38,6 +38,9 @@
     <Filter Include="Particle\BackGround">
       <UniqueIdentifier>{139ceab1-ca3d-4113-9786-ece80d5e4cf2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Particle\GetCoin">
+      <UniqueIdentifier>{9c430944-a264-4333-af59-9ca2816b267b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
@@ -103,6 +106,12 @@
     </ClCompile>
     <ClCompile Include="Matrix.cpp">
       <Filter>Particle\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GetCoinParticle.cpp">
+      <Filter>Particle\GetCoin</Filter>
+    </ClCompile>
+    <ClCompile Include="GetCoinEmitter.cpp">
+      <Filter>Particle\GetCoin</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +227,12 @@
     </ClInclude>
     <ClInclude Include="Matrix.h">
       <Filter>Particle\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="GetCoinParticle.h">
+      <Filter>Particle\GetCoin</Filter>
+    </ClInclude>
+    <ClInclude Include="GetCoinEmitter.h">
+      <Filter>Particle\GetCoin</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

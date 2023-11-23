@@ -9,7 +9,7 @@ public:
 	~RunningParticle();
 
 	void Update();
-	void Draw();
+	void Draw(int scroll);
 
 	bool GetDelFlag(); // パーティクルが消えたかを取得する関数
 
