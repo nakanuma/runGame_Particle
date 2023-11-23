@@ -8,11 +8,11 @@ ModeChangeEmitter::~ModeChangeEmitter()
 {
 }
 
-void ModeChangeEmitter::Update()
+void ModeChangeEmitter::Update(Vector2 moveAmount)
 {
 	// パーティクル全ての更新処理を呼ぶ
 	for (auto itr = particleList.begin(); itr != particleList.end();) {
-		itr->Update();
+		itr->Update(moveAmount);
 
 		// DelFlagがtrueだったら
 		if (itr->GetDelFlag()) {

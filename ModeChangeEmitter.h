@@ -11,7 +11,7 @@ public:
 	ModeChangeEmitter();
 	~ModeChangeEmitter();
 
-	void Update();
+	void Update(Vector2 moveAmount);
 	void Draw(int scroll);
 
 	void Emit(Vector2 centerPos);

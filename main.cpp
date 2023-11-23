@@ -151,7 +151,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		}
 
 		// モード変更エミッターの更新処理
-		modeChangeEmitter.Update();
+		modeChangeEmitter.Update({8,0});
 		if (keys[DIK_B] && !preKeys[DIK_B]) {
 			modeChangeEmitter.Emit({ player.pos.x + player.size / 2, player.pos.y + player.size / 2 });
 		}

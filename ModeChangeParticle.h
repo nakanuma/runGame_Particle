@@ -8,7 +8,7 @@ public:
 	ModeChangeParticle(Vector2 pos,Vector2 velocity,float size);
 	~ModeChangeParticle();
 
-	void Update();
+	void Update(Vector2 moveAmount);
 	void Draw(int scroll);
 
 	bool GetDelFlag();

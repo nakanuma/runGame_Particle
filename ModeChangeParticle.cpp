@@ -16,7 +16,7 @@ ModeChangeParticle::~ModeChangeParticle()
 {
 }
 
-void ModeChangeParticle::Update()
+void ModeChangeParticle::Update(Vector2 moveAmount)
 {
 	timer_++;
 
@@ -27,8 +27,8 @@ void ModeChangeParticle::Update()
 	rightBottom_ = { (float)size_ / 2,(float)size_ / 2 };
 
 	// 座標を更新
-	pos_.x += velocity_.x * speed_;
-	pos_.y += velocity_.y * speed_;
+	pos_.x += velocity_.x * speed_ + moveAmount.x;
+	pos_.y += velocity_.y * speed_ + moveAmount.y;
 
 	// 角度を毎フレーム増加
 	theta_ += (4.0f * (float)M_PI) / 180.0f;
