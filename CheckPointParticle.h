@@ -36,7 +36,8 @@ private:
 	Vector2 movedRightBottom = { 0.0f,0.0f };
 
 	Vector2 velocity_;
-	float speed_ = 2.0f;
+	float speed_ = 6.0f;
+	float acceleratorY = 0.08f;
 	bool del_ = false;
 	float size_;
 	int alpha_ = 255;

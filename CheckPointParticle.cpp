@@ -53,10 +53,17 @@ void CheckPointParticle::Update()
 	//	alpha_ -= 5;
 	//}
 
-	// 指定フレームに到達したらサイズを小さくする
-	if (timer_ > 10 && size_ > 0) {
-		size_ -= 0.5f;
+	// 指定したスピードになるまで毎フレーム減らす
+	if (speed_ > 1.5f) {
+		speed_ -= 0.2f;
 	}
+
+	// 指定フレームに到達したら重力落下を始める
+	if (timer_ > 12) {
+		velocity_.y += acceleratorY;
+	}
+
+	size_ -= 0.8f;
 
 	if (size_ <= 0) {
 		del_ = true;
@@ -65,16 +72,18 @@ void CheckPointParticle::Update()
 
 void CheckPointParticle::Draw(int scroll)
 {
-	Novice::DrawQuad(
-		static_cast<int>(movedLeftTop.x) - scroll, static_cast<int>(movedLeftTop.y),
-		static_cast<int>(movedRightTop.x) - scroll, static_cast<int>(movedRightTop.y),
-		static_cast<int>(movedLeftBottom.x) - scroll, static_cast<int>(movedLeftBottom.y),
-		static_cast<int>(movedRightBottom.x) - scroll, static_cast<int>(movedRightBottom.y),
-		0, 0,
-		42, 42,
-		gh_,
-		0xFFFFFF00 + alpha_
-	);
+	if (del_ == false) {
+		Novice::DrawQuad(
+			static_cast<int>(movedLeftTop.x) - scroll, static_cast<int>(movedLeftTop.y),
+			static_cast<int>(movedRightTop.x) - scroll, static_cast<int>(movedRightTop.y),
+			static_cast<int>(movedLeftBottom.x) - scroll, static_cast<int>(movedLeftBottom.y),
+			static_cast<int>(movedRightBottom.x) - scroll, static_cast<int>(movedRightBottom.y),
+			0, 0,
+			42, 42,
+			gh_,
+			0xFFFFFF00 + alpha_
+		);
+	}
 }
 
 bool CheckPointParticle::GetDelFlag()
