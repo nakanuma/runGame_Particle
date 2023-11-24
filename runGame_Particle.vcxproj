@@ -117,6 +117,8 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\TextureManager.cpp" />
     <ClCompile Include="C:\KamataEngine\DirectXGame\2d\ImGuiManager.cpp" />
     <ClCompile Include="C:\KamataEngine\Adapter\Novice.cpp" />
+    <ClCompile Include="CheckPointEmitter.cpp" />
+    <ClCompile Include="CheckPointParticle.cpp" />
     <ClCompile Include="ClearEmitter.cpp" />
     <ClCompile Include="ClearParticle.cpp" />
     <ClCompile Include="FlyingEmitter.cpp" />
@@ -165,6 +167,8 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="C:\KamataEngine\DirectXGame\input\Input.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\scene\GameScene.h" />
     <ClInclude Include="C:\KamataEngine\Adapter\Novice.h" />
+    <ClInclude Include="CheckPointEmitter.h" />
+    <ClInclude Include="CheckPointParticle.h" />
     <ClInclude Include="ClearEmitter.h" />
     <ClInclude Include="ClearParticle.h" />
     <ClInclude Include="FlyingEmitter.h" />
