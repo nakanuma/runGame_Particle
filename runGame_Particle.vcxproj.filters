@@ -47,6 +47,9 @@
     <Filter Include="Particle\CheckPoint">
       <UniqueIdentifier>{0581576c-9e64-45f4-b279-82253518dd56}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Particle\ModeChange2">
+      <UniqueIdentifier>{45d840dc-81e6-4389-9258-022a15265e7e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
@@ -130,6 +133,12 @@
     </ClCompile>
     <ClCompile Include="CheckPointEmitter.cpp">
       <Filter>Particle\CheckPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="ModeChangeParticle2.cpp">
+      <Filter>Particle\ModeChange2</Filter>
+    </ClCompile>
+    <ClCompile Include="ModeChangeEmitter2.cpp">
+      <Filter>Particle\ModeChange2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -263,6 +272,12 @@
     </ClInclude>
     <ClInclude Include="CheckPointEmitter.h">
       <Filter>Particle\CheckPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="ModeChangeParticle2.h">
+      <Filter>Particle\ModeChange2</Filter>
+    </ClInclude>
+    <ClInclude Include="ModeChangeEmitter2.h">
+      <Filter>Particle\ModeChange2</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
