@@ -92,7 +92,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	ModeChangeEmitter2 modeChangeEmitter2;
 
 	// 画像読み込み
-	int bgGH = Novice::LoadTexture("./images/bg.png");
+	int bgGH = Novice::LoadTexture("./images/backGround.png");
 
 	// ウィンドウの×ボタンが押されるまでループ
 	while (Novice::ProcessMessage() == 0) {
